@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Submissions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="contact.html">Contact Form</a>
+        <a href="submissions.html">View Submissions</a>
+    </nav>
+
+    <div class="container">
+        <h2>All Submissions</h2>
+        <ul id="list"></ul>
+    </div>
+
+    <script>
+        // Retrieve data from LocalStorage
+        let submissions = JSON.parse(localStorage.getItem("contacts")) || [];
+        let list = document.getElementById("list");
+
+        // Check if there are any submissions
+        if (submissions.length === 0) {
+            list.innerHTML = "<p style='text-align:center; color:#7f8c8d;'>No submissions yet.</p>";
+        } else {
+            // Loop through each submission and display it
+            submissions.forEach(s => {
+                // Notice the correct backtick syntax for template literals
+                list.innerHTML += `
+                    <li>
+                        <strong>Name:</strong> ${s.name} <br>
+                        <strong>Email:</strong> ${s.email} <br>
+                        <strong>Message:</strong> ${s.message}
+                    </li>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
