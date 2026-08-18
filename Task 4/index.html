@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster | CRUD Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Using Phosphor Icons for modern UI icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="ph-fill ph-check-circle"></i>
+                <h2>TaskMaster</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="active"><i class="ph ph-squares-four"></i> Dashboard</a>
+                <a href="#"><i class="ph ph-calendar-check"></i> Calendar</a>
+                <a href="#"><i class="ph ph-gear"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Search tasks by title...">
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">JS</div>
+                </div>
+            </header>
+
+            <!-- Dashboard Stats -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #e0f2fe; color: #0284c7;"><i class="ph ph-list-numbers"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Tasks</h3>
+                        <p id="totalTasks">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #dcfce7; color: #16a34a;"><i class="ph ph-check-circle"></i></div>
+                    <div class="stat-info">
+                        <h3>Completed</h3>
+                        <p id="completedTasks">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #fef08a; color: #ca8a04;"><i class="ph ph-hourglass-high"></i></div>
+                    <div class="stat-info">
+                        <h3>Pending</h3>
+                        <p id="pendingTasks">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Add Task Form -->
+            <section class="action-section">
+                <form id="taskForm" class="task-form">
+                    <input type="text" id="taskTitle" placeholder="What needs to be done?" required>
+                    <select id="taskPriority">
+                        <option value="Low">Low Priority</option>
+                        <option value="Medium" selected>Medium Priority</option>
+                        <option value="High">High Priority</option>
+                    </select>
+                    <button type="submit" class="btn-primary"><i class="ph ph-plus"></i> Add Task</button>
+                </form>
+            </section>
+
+            <!-- Task List Grid -->
+            <section class="tasks-section">
+                <div class="section-header">
+                    <h2>Your Tasks</h2>
+                </div>
+                <div id="taskList" class="tasks-grid">
+                    <!-- Tasks will be injected here by JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

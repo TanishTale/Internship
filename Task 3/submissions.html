@@ -3,42 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Submissions</title>
+    <title>Submissions | My Multi-Page Site</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <nav>
-        <a href="contact.html">Contact Form</a>
-        <a href="submissions.html">View Submissions</a>
+    <!-- Shared Navigation -->
+    <nav class="navbar">
+        <div class="logo">BrandName</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="submissions.html" class="active">Submissions</a></li>
+        </ul>
     </nav>
 
-    <div class="container">
-        <h2>All Submissions</h2>
-        <ul id="list"></ul>
-    </div>
+    <!-- Submissions Content -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Recent Form Submissions</h2>
+            <p>These messages are loaded dynamically from your browser's LocalStorage.</p>
+            
+            <!-- JavaScript will inject the data here -->
+            <div id="submissionsList" class="submissions-grid">
+                <!-- Cards will appear here -->
+            </div>
+            
+            <button id="clearDataBtn" class="btn" style="margin-top: 2rem; background-color: #e74c3c;">Clear All Data</button>
+        </div>
+    </section>
 
-    <script>
-        // Retrieve data from LocalStorage
-        let submissions = JSON.parse(localStorage.getItem("contacts")) || [];
-        let list = document.getElementById("list");
+    <footer class="footer">
+        <p>&copy; 2026 BrandName. All rights reserved.</p>
+    </footer>
 
-        // Check if there are any submissions
-        if (submissions.length === 0) {
-            list.innerHTML = "<p style='text-align:center; color:#7f8c8d;'>No submissions yet.</p>";
-        } else {
-            // Loop through each submission and display it
-            submissions.forEach(s => {
-                // Notice the correct backtick syntax for template literals
-                list.innerHTML += `
-                    <li>
-                        <strong>Name:</strong> ${s.name} <br>
-                        <strong>Email:</strong> ${s.email} <br>
-                        <strong>Message:</strong> ${s.message}
-                    </li>
-                `;
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
